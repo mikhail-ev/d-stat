@@ -16,7 +16,7 @@ export default function Home() {
         </h1>
       <p>
         <ul>
-          <li><Link href="/statistics">Statistics</Link></li>
+          <li><Link href="/stats">Statistics</Link></li>
           <li><Link href="/journal">Journal</Link></li>
         </ul>
       </p>

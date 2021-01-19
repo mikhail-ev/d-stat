@@ -8,7 +8,7 @@ function Page({id, content, title}) {
 }
 
 export async function getServerSideProps({ params: {id} }) {
-    const res = await fetch(`http://167.172.111.220:3000/statistics/${id}`)
+    const res = await fetch(`http://admin/statistics/${id}`)
     const post = await res.json()
     console.log(post)
     return { props: { id, content: post.Content, title: post.Title } }
