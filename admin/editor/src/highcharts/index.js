@@ -1,0 +1,12 @@
+import ('raw-loader!./highstock').then(rawModule => eval.call(null, rawModule.default))
+import ('raw-loader!./highcharts-more').then(rawModule => eval.call(null, rawModule.default))
+import ('raw-loader!./highcharts-3d').then(rawModule => eval.call(null, rawModule.default))
+import ('raw-loader!./data').then(rawModule => eval.call(null, rawModule.default))
+import ('raw-loader!./exporting').then(rawModule => eval.call(null, rawModule.default))
+import ('raw-loader!./funnel').then(rawModule => eval.call(null, rawModule.default))
+import ('raw-loader!./solid-gauge').then(rawModule => eval.call(null, rawModule.default))
+import ('raw-loader!./series-label').then(rawModule => eval.call(null, rawModule.default))
+import ('raw-loader!./accessibility').then(rawModule => eval.call(null, rawModule.default))
+import ('raw-loader!./annotations').then(rawModule => eval.call(null, rawModule.default))
+import ('raw-loader!./highcharts-editor.min').then(rawModule => eval.call(null, rawModule.default))
+import './highcharts-editor.min.css'

@@ -1,0 +1,40 @@
+http {
+  server {
+    listen 80;
+    listen [::]:80;
+
+    server_name example.com;
+
+    location ~ ^/app(.*)$ {
+      resolver 127.0.0.11;
+      set $example client$1;
+      proxy_pass http://$example;
+    }
+
+    location ~ ^/admin(.*)$ {
+      resolver 127.0.0.11;
+      set $example admin/admin$1;
+      proxy_pass http://$example;
+    }
+
+    location ~ ^/content-manager(.*)$ {
+      resolver 127.0.0.11;
+      set $example admin/content-manager$1;
+      proxy_pass http://$example;
+    }
+
+    location ~ ^/content-type-builder(.*)$ {
+      resolver 127.0.0.11;
+      set $example admin/content-type-builder$1;
+      proxy_pass http://$example;
+    }
+
+    location / {
+      resolver 127.0.0.11;
+      set $example client$1;
+      proxy_pass http://$example;
+    }
+  }
+}
+
+events {}
