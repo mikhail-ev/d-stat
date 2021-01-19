@@ -1,15 +1,18 @@
-function Page({ data }) {
-    // Render data...
+function Page({id, content, title}) {
+    return (
+        <>
+            <div>Post nr.{id}: {title}</div>
+            <div dangerouslySetInnerHTML={{__html: content}}/>
+        </>
+    )
 }
 
-// This gets called on every request
-export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await fetch(`https://.../data`)
-    const data = await res.json()
-
-    // Pass data to the page via props
-    return { props: { data } }
+export async function getServerSideProps({ params: {id} }) {
+    const res = await fetch(`http://167.172.111.220:3000/statistics/${id}`)
+    const post = await res.json()
+    console.log(post)
+    return { props: { id, content: post.Content, title: post.Title } }
 }
+
 
 export default Page
