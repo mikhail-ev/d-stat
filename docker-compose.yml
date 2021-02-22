@@ -5,7 +5,7 @@ services:
     ports:
       - '80:80'
     depends_on:
-#      - client
+      - client
       - admin
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://test" ]
@@ -15,6 +15,10 @@ services:
 
   admin:
     build: ./admin
+    volumes:
+    - ./db:/data/db
 
   client:
     build: ./client
+    volumes:
+    - ./client/pages:/usr/src/app/pages

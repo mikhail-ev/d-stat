@@ -5,14 +5,14 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app
-COPY yarn.lock /usr/src/app
+COPY package-lock.json /usr/src/app
 
-RUN yarn install
+RUN npm install
 
 COPY . /usr/src/app
 
-RUN yarn build
+RUN npm run build
 
 ENV PORT 80
 
-CMD [ "yarn", "start" ]
+CMD [ "npm", "run", "dev" ]
